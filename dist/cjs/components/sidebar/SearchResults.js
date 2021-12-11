@@ -37,6 +37,8 @@ require("core-js/modules/es.regexp.exec.js");
 
 require("core-js/modules/es.array.slice.js");
 
+require("core-js/modules/es.array.map.js");
+
 require("core-js/modules/es.string.split.js");
 
 require("core-js/modules/es.array.includes.js");
@@ -48,8 +50,6 @@ require("core-js/modules/es.array.find.js");
 require("core-js/modules/es.array.filter.js");
 
 require("core-js/modules/es.function.name.js");
-
-require("core-js/modules/es.array.map.js");
 
 require("core-js/modules/es.array.concat.js");
 
@@ -208,11 +208,13 @@ var Highlight = /*#__PURE__*/_react.default.memo(function (_ref7) {
         end = _ref11[1];
 
     var length = _ref10.length;
-    var strMarked = value.slice(start, end + 1);
+    var strMarked = value.slice(start, end + 1).toLowerCase();
     var isMarked = false;
 
     if (query) {
-      var strList = query.split(' ');
+      var strList = query.split(' ').map(function (str) {
+        return str.toLowerCase();
+      });
 
       if (strList.includes(strMarked)) {
         isMarked = true;

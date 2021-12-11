@@ -19,13 +19,13 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 import "core-js/modules/es.string.match.js";
 import "core-js/modules/es.regexp.exec.js";
 import "core-js/modules/es.array.slice.js";
+import "core-js/modules/es.array.map.js";
 import "core-js/modules/es.string.split.js";
 import "core-js/modules/es.array.includes.js";
 import "core-js/modules/es.string.includes.js";
 import "core-js/modules/es.array.find.js";
 import "core-js/modules/es.array.filter.js";
 import "core-js/modules/es.function.name.js";
-import "core-js/modules/es.array.map.js";
 import "core-js/modules/es.array.concat.js";
 import "core-js/modules/es.array.join.js";
 import "core-js/modules/es.string.repeat.js";
@@ -149,11 +149,13 @@ var Highlight = /*#__PURE__*/React.memo(function (_ref7) {
         end = _ref11[1];
 
     var length = _ref10.length;
-    var strMarked = value.slice(start, end + 1);
+    var strMarked = value.slice(start, end + 1).toLowerCase();
     var isMarked = false;
 
     if (query) {
-      var strList = query.split(' ');
+      var strList = query.split(' ').map(function (str) {
+        return str.toLowerCase();
+      });
 
       if (strList.includes(strMarked)) {
         isMarked = true;
