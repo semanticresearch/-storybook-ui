@@ -110,13 +110,13 @@ const Highlight = /*#__PURE__*/React.memo(({
   }, [start, end], index, {
     length
   }) => {
-    const strMarked = value.slice(start, end + 1).toLowerCase();
+    const strMarked = value.slice(start, end + 1);
     let isMarked = false;
 
     if (query) {
       const strList = query.split(' ').map(str => str.toLowerCase());
 
-      if (strList.includes(strMarked)) {
+      if (strList.includes(strMarked.toLowerCase())) {
         isMarked = true;
       }
     }

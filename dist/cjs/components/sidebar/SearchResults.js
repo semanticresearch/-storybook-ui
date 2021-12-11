@@ -208,7 +208,7 @@ var Highlight = /*#__PURE__*/_react.default.memo(function (_ref7) {
         end = _ref11[1];
 
     var length = _ref10.length;
-    var strMarked = value.slice(start, end + 1).toLowerCase();
+    var strMarked = value.slice(start, end + 1);
     var isMarked = false;
 
     if (query) {
@@ -216,7 +216,7 @@ var Highlight = /*#__PURE__*/_react.default.memo(function (_ref7) {
         return str.toLowerCase();
       });
 
-      if (strList.includes(strMarked)) {
+      if (strList.includes(strMarked.toLowerCase())) {
         isMarked = true;
       }
     }
